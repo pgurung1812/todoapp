@@ -14,7 +14,10 @@ class TodoListsTest < ApplicationSystemTestCase
     visit todo_lists_url
     click_on "New Todo List"
 
+    fill_in "Category", with: @todo_list.category
     fill_in "Description", with: @todo_list.description
+    fill_in "Duedate", with: @todo_list.duedate
+    check "Status" if @todo_list.status
     fill_in "Title", with: @todo_list.title
     click_on "Create Todo list"
 
@@ -26,7 +29,10 @@ class TodoListsTest < ApplicationSystemTestCase
     visit todo_lists_url
     click_on "Edit", match: :first
 
+    fill_in "Category", with: @todo_list.category
     fill_in "Description", with: @todo_list.description
+    fill_in "Duedate", with: @todo_list.duedate
+    check "Status" if @todo_list.status
     fill_in "Title", with: @todo_list.title
     click_on "Update Todo list"
 

@@ -3,7 +3,13 @@
 one:
   title: MyString
   description: MyText
+  duedate: 2021-09-18
+  status: false
+  category: MyString
 
 two:
   title: MyString
   description: MyText
+  duedate: 2021-09-18
+  status: false
+  category: MyString

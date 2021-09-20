@@ -1,20 +1,22 @@
 class TodoListsController < ApplicationController
+  before_action :require_login
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_lists = TodoList.all
+    @todo_lists = current_user.todo_lists
   end
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
+    
   end
 
   # GET /todo_lists/new
   def new
-    @todo_list = TodoList.new
+     @todo_list = current_user.todo_lists.build 
   end
 
   # GET /todo_lists/1/edit
@@ -24,8 +26,8 @@ class TodoListsController < ApplicationController
   # POST /todo_lists
   # POST /todo_lists.json
   def create
-    @todo_list = TodoList.new(todo_list_params)
-
+   @todo_list = current_user.todo_lists.build(todo_list_params)
+   @todo_list.user_id = current_user.id
     respond_to do |format|
       if @todo_list.save
         format.html { redirect_to @todo_list, notice: 'Todo list was successfully created.' }
@@ -54,17 +56,19 @@ class TodoListsController < ApplicationController
   # DELETE /todo_lists/1
   # DELETE /todo_lists/1.json
   def destroy
+    @todo_list= current_user.todo_lists.find(params[:id])
     @todo_list.destroy
     respond_to do |format|
       format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }
       format.json { head :no_content }
+      redirect_to todo_lists_path
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
-      @todo_list = TodoList.find(params[:id])
+       @todo_list = current_user.todo_lists.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

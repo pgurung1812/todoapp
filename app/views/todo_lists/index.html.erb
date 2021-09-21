@@ -7,7 +7,10 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th>Due date</th>
+      <th>Done</th>
+      <th>Category</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
@@ -16,6 +19,9 @@
       <tr>
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
+        <td><%= todo_list.duedate %></td>
+        <td><%= todo_list.status %></td>
+        <td><%= todo_list.category %></td>
         <td><%= link_to 'Show', todo_list %></td>
         <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
         <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>

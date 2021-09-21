@@ -57,6 +57,7 @@ class TodoListsController < ApplicationController
   # DELETE /todo_lists/1.json
   def destroy
     @todo_list= current_user.todo_lists.find(params[:id])
+    @todo_list.todo_items.clear
     @todo_list.destroy
     respond_to do |format|
       format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }

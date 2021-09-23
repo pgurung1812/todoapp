@@ -30,7 +30,7 @@ class TodoListsController < ApplicationController
    @todo_list.user_id = current_user.id
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to @todo_list, notice: 'Todo item was successfully created.' }
+        format.html { redirect_to todo_lists_url, notice: 'Todo item was successfully created.' }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new }

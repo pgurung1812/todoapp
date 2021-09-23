@@ -10,5 +10,20 @@
   <%= @todo_list.description %>
 </p>
 
+<p>
+  <strong>Due Date:</strong>
+  <%= @todo_list.duedate %>
+</p>
+
+<p>
+  <strong>Done?:</strong>
+  <%= @todo_list.status %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @todo_list.category %>
+</p>
+
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
 <%= link_to 'Back', todo_lists_path %>

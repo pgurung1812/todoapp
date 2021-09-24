@@ -5,7 +5,8 @@ class TodoListsController < ApplicationController
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_lists = current_user.todo_lists
+   # @todo_lists = current_user.todo_lists
+   @todo_lists = current_user.todo_lists.order('created_at ASC')
   end
 
   # GET /todo_lists/1
@@ -74,7 +75,8 @@ class TodoListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description,:duedate, :status, :category)
+      params.require(:todo_list).permit(:title, :description,:duedate, :status, :category, :priority)
     end
+    PRIORITIES=['High','Medium','Low']
   end
 

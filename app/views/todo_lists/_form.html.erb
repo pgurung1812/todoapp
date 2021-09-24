@@ -35,6 +35,13 @@
     <%= form.label :category %>
     <%= form.text_field :category %>
   </div>
+  
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.select :priority, TodoListsController::PRIORITIES %>
+     
+     
+  </div>
 
   <div class="actions">
     <%= form.submit %>

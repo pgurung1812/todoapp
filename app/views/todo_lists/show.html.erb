@@ -1,34 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @todo_list.title %>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @todo_list.title %> <%= @todo_list.description %> </h1>
+  <p class="lead"><%= @todo_list.duedate %> | <%= @todo_list.status %>|<%= @todo_list.category %>
+  |<%= @todo_list.priority %>
 </p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @todo_list.description %>
 </p>
+ 
+ <br/>
+  
+   <%= link_to 'Edit', edit_todo_list_path(@todo_list), class: "btn btn-info" %> 
+<%= link_to 'Back', todo_lists_path ,class: "btn btn-info"%>
 
-<p>
-  <strong>Due Date:</strong>
-  <%= @todo_list.duedate %>
-</p>
-
-<p>
-  <strong>Done?:</strong>
-  <%= @todo_list.status %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @todo_list.category %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @todo_list.priority %>
-</p>
-
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>
+  
+</div>

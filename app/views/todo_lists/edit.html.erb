@@ -1,6 +1,7 @@
 <h1>Editing Todo Item</h1>
-
+<br/>
 <%= render 'form', todo_list: @todo_list %>
 
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+<%= link_to 'Show', @todo_list ,class:"btn btn-warning"%> 
+<br/><br/>
+<%= link_to 'Back', todo_lists_path,class:"btn btn-warning" %>

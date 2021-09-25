@@ -11,39 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field" "form-group">
+   
+    <%= form.text_field :title, class:"form-control",placeholder:"Title" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field" "form-group">
+   
+    <%= form.text_area :description, class:"form-control",placeholder:"Description" %>
   </div>
 
-<div class="field">
-    <%= form.label :duedate %>
-    <%= form.date_select :duedate %>
+<div class="field" "form-group">
+   
+    <%= form.date_select :duedate, class:"form-control",placeholder:"Due Date" %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
+  <div class="field" "form-group">
+ 
+    <%= form.check_box :status, class:"form-control",placeholder:"Status" %>
   </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
+  <div class="field" "form-group">
+    
+    <%= form.text_field :category, class:"form-control",placeholder:"Category" %>
   </div>
   
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.select :priority, TodoListsController::PRIORITIES %>
+  <div class="field" "form-group">
+   
+    <%= form.select :priority, TodoListsController::PRIORITIES, class:"form-control",placeholder:"Priority" %>
      
      
   </div>
-
+<br/>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-info"%>
   </div>
 <% end %>

@@ -6,7 +6,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists.json
   def index 
    # @todo_lists = current_user.todo_lists
-   @todo_lists = current_user.todo_lists.order('duedate ASC')
+   @todo_lists = current_user.todo_lists.order('duedate ASC,priority')
   end
 
   # GET /todo_lists/1

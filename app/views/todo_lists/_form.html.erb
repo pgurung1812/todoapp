@@ -33,7 +33,7 @@
 
   <div class="field" "form-group">
     
-    <%= form.text_field :category, class:"form-control",placeholder:"Category" %>
+    <%= form.select :category, TodoListsController::CATEGORIES, class:"form-control",placeholder:"Category" %>
   </div>
   
   <div class="field" "form-group">

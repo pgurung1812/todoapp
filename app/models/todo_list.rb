@@ -7,5 +7,6 @@ class TodoList < ApplicationRecord
     validates :user, presence: true
     
     PRIORITIES = ['high', 'medium', 'low']
+    CATEGORIES = ['Private','Work','Other']
     
 end

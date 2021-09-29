@@ -78,5 +78,5 @@ class TodoListsController < ApplicationController
       params.require(:todo_list).permit(:title, :description,:duedate, :status, :category, :priority)
     end
     PRIORITIES=['High','Medium','Low']
+    CATEGORIES=['Private','Work','Other']
   end
-

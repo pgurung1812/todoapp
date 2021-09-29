@@ -24,7 +24,6 @@
         <td><%= todo_list.status %></td>
         <td><%= todo_list.category %></td>
         <td><%= todo_list.priority %></td>
-        <td><%= link_to 'Show', todo_list %></td>
         <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
         <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

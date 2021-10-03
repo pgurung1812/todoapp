@@ -11,7 +11,8 @@
       <th>Done</th>
       <th>Category</th>
       <th>Priority</th>
-      <th colspan="7"></th>
+      <th>Creation Date</th>
+      <th colspan="8"></th>
     </tr>
   </thead>
 
@@ -24,6 +25,7 @@
         <td><%= todo_list.status %></td>
         <td><%= todo_list.category %></td>
         <td><%= todo_list.priority %></td>
+        <td><%= todo_list.created_at.to_date %></td>
         <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
         <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

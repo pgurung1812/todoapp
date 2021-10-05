@@ -6,7 +6,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists.json
   def index 
    # @todo_lists = current_user.todo_lists
-   @todo_lists = current_user.todo_lists.order('duedate ASC,priority')
+   @todo_lists = current_user.todo_lists.order('status ASC,duedate ASC,priority')
   end
 
   # GET /todo_lists/1
@@ -45,7 +45,7 @@ class TodoListsController < ApplicationController
   def update
     respond_to do |format|
       if @todo_list.update(todo_list_params)
-        format.html { redirect_to @todo_list, notice: 'Todo item was successfully updated.' }
+        format.html { redirect_to todo_lists_url, notice: 'Todo item was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo_list }
       else
         format.html { render :edit }
@@ -58,7 +58,6 @@ class TodoListsController < ApplicationController
   # DELETE /todo_lists/1.json
   def destroy
     @todo_list= current_user.todo_lists.find(params[:id])
-    @todo_list.todo_items.clear
     @todo_list.destroy
     respond_to do |format|
       format.html { redirect_to todo_lists_url, notice: 'Todo item was successfully deleted.' }
@@ -79,4 +78,4 @@ class TodoListsController < ApplicationController
     end
     PRIORITIES=['High','Medium','Low']
     CATEGORIES=['Private','Work','Other']
-  end
+end

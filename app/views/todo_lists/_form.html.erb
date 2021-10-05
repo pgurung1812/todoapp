@@ -28,7 +28,7 @@
 
   <div class="field" "form-group">
  
-    <%= form.check_box :status, class:"form-control",placeholder:"Status" %>
+    <%= form.check_box :status,placeholder:"Status" %>
   </div>
 
   <div class="field" "form-group">
@@ -42,8 +42,8 @@
      
      
   </div>
-<br/>
+  <br/>
   <div class="actions">
-    <%= form.submit class:"btn btn-info"%>
+    <%= form.submit "Update Todo item", class:"btn btn-info"%>
   </div>
 <% end %>

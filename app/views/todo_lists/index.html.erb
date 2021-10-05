@@ -1,34 +1,59 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Todo Items</h1>
+<h1><center>Todo Items</center></h1><br />
 
 <table class="table table-striped table-hover table-bordered">
   <thead class="table-dark">
     <tr>
+      <th>Done</th>
       <th>Title</th>
       <th>Description</th>
       <th>Due date</th>
-      <th>Done</th>
       <th>Category</th>
       <th>Priority</th>
       <th>Creation Date</th>
-      <th colspan="8"></th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @todo_lists.each do |todo_list| %>
-      <tr>
-        <td><%= todo_list.title %></td>
-        <td><%= todo_list.description %></td>
-        <td><%= todo_list.duedate %></td>
-        <td><%= todo_list.status %></td>
-        <td><%= todo_list.category %></td>
-        <td><%= todo_list.priority %></td>
-        <td><%= todo_list.created_at.to_date %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    
+      <% if todo_list.status %>
+        <tr class="table-success">
+          <td>
+            <%= form_for(todo_list) do |f| %>
+            <%= f.check_box :status, :checked => false, :style => 'visibility: hidden' %>
+            <%= f.submit "Uncross" %>
+            <% end %>
+          </td>
+          <td class="striker"><%= todo_list.title %></td>
+          <td class="striker"><%= todo_list.description %></td>
+          <td class="striker"><%= todo_list.duedate %></td>
+          <td class="striker"><%= todo_list.category %></td>
+          <td class="striker"><%= todo_list.priority %></td>
+          <td class="striker"><%= todo_list.created_at.to_date %></td>
+          <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
+          <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      
+      <% else %>
+        <tr>
+          <td>
+            <%= form_for(todo_list) do |f| %>
+            <%= f.check_box :status, :checked => true, :style => 'visibility: hidden' %>
+            <%= f.submit "Check Off" %>
+            <% end %>
+          </td>
+          <td><%= todo_list.title %></td>
+          <td><%= todo_list.description %></td>
+          <td><%= todo_list.duedate %></td>
+          <td><%= todo_list.category %></td>
+          <td><%= todo_list.priority %></td>
+          <td><%= todo_list.created_at.to_date %></td>
+          <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
+          <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      
+      <% end %>
     <% end %>
   </tbody>
 </table>

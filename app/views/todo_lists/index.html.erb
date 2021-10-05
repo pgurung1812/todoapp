@@ -31,7 +31,8 @@
           <td class="striker"><%= todo_list.category %></td>
           <td class="striker"><%= todo_list.priority %></td>
           <td class="striker"><%= todo_list.created_at.to_date %></td>
-          <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
+          <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %>
+          </td>
           <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       
@@ -61,4 +62,3 @@
 <br>
 
 <%= link_to 'New Todo Item', new_todo_list_path, class:"btn btn-info" %>
-

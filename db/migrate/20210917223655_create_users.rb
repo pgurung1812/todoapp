@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :remember_token, limit: 128, null: false
     end
     
-    drop_table :todo_lists
+    drop_table :todo_lists, force :cascade
     
     create_table :todo_lists do |t|
       t.string :title, null: false

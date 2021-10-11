@@ -17,7 +17,7 @@ end
     
   end
 
-  # GET /todo_lists/new
+  # GET /todo_lists/newcd 
   def new
      @todo_list = current_user.todo_lists.build 
   end

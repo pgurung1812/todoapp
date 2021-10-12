@@ -1,15 +1,14 @@
 class TodoListsController < ApplicationController
   before_action :require_login
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
- helper_method :sort_column, :sort_direction
+  before_action :set_todo_list, only: [:show, :edit, :update, :destroy, :clear]
+  helper_method :sort_column, :sort_direction, :sort_column_category, :sort_column_priority, :sort_column_status, :sort_column_title, :sort_column_created_at
+ 
   # GET /todo_lists
   # GET /todo_lists.json
   def index 
    # @todo_lists = current_user.todo_lists
- @todo_lists = current_user.todo_lists.order("#{sort_column} #{sort_direction}")
-end
-  
-  
+   @todo_lists = current_user.todo_lists.order("#{sort_column} #{sort_direction}")
+  end
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
@@ -83,11 +82,35 @@ end
     
     private
   def sortable_columns
-    ["duedate"]
+    ["duedate","category","status", "priority", "title", "created_at", "description"]
   end
 
   def sort_column
     sortable_columns.include?(params[:column]) ? params[:column] : "duedate"
+  end
+  
+  def sort_column_category
+    sortable_columns.include?(params[:column]) ? params[:column] : "category"
+  end
+  
+  def sort_column_status
+    sortable_columns.include?(params[:column]) ? params[:column] : "status"
+  end
+  
+  def sort_column_priority
+    sortable_columns.include?(params[:column]) ? params[:column] : "priority"
+  end
+  
+  def sort_column_title
+    sortable_columns.include?(params[:column]) ? params[:column] : "title"
+  end
+  
+  def sort_column_created_at
+    sortable_columns.include?(params[:column]) ? params[:column] : "created_at"
+  end
+  
+  def sort_column_description
+    sortable_columns.include?(params[:column]) ? params[:column] : "description"
   end
 
   def sort_direction

@@ -5,7 +5,7 @@ module ApplicationHelper
     icon = sort_direction == "asc" ? "bi bi-caret-down" : "bi bi-caret-up"
     icon = column == sort_column ? icon : ""
     link_to "#{title} <span class='#{icon}'></span>".html_safe, {column: column, direction: direction}
-  end
+    end
   
   def flash_class(level)
   bootstrap_alert_class = {

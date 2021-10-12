@@ -1,19 +1,27 @@
 <h1><center><b>Todo Items</b></center></h1>
 
-<%= link_to 'New Todo Item', new_todo_list_path, class:"btn btn-primary" %>
-<br/><br/>
+<br/>
+
+<div id="wrapper">
+  <div id="first"><%= link_to 'New Todo Item', new_todo_list_path, class:"btn btn-primary" %></div>
+  <div id="second"><%= link_to "Clear Filters", todo_lists_path, class:"btn btn-secondary btn-sm"%></div>
+</div>
+
+<br/>
 
 <table class="table table-striped table-hover table-bordered">
   <thead class="table-light">
     <tr>
       <th>Done</th>
-      <th>Title</th>
-      <th>Description</th>
+      <th><%= sort_link "title"%></th>
+      <th><%= sort_link "description"%></th>
       <th><%= sort_link "duedate"%></th>
-      <th>Category</th>
-      <th>Priority</th>
-      <th>Creation Date</th>
-      <th colspan="7"></th>
+      <th><%= sort_link "category"%></th>
+      <th><%= sort_link "priority"%></th>
+      <th><%= sort_link "created_at"%></th>
+      <th>Edit</th>
+      <th>Delete</th>
+      
     </tr>
   </thead>
 

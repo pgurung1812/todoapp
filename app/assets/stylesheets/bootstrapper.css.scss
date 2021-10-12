@@ -4,3 +4,17 @@
 .striker {
     text-decoration: line-through;
 }
+
+#wrapper {
+    width: 400px;
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+#first {
+    width: 200px;
+    float:left;
+    
+}
+#second {
+    margin-top: 3px;
+    float:left;
+}

@@ -1,13 +1,15 @@
 class TodoListsController < ApplicationController
   before_action :require_login
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
-
+ helper_method :sort_column, :sort_direction
   # GET /todo_lists
   # GET /todo_lists.json
   def index 
    # @todo_lists = current_user.todo_lists
-   @todo_lists = current_user.todo_lists.order('status ASC,duedate ASC,priority')
-  end
+ @todo_lists = current_user.todo_lists.order("#{sort_column} #{sort_direction}")
+end
+  
+  
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
@@ -15,7 +17,7 @@ class TodoListsController < ApplicationController
     
   end
 
-  # GET /todo_lists/new
+  # GET /todo_lists/newcd 
   def new
      @todo_list = current_user.todo_lists.build 
   end
@@ -78,4 +80,17 @@ class TodoListsController < ApplicationController
     end
     PRIORITIES=['High','Medium','Low']
     CATEGORIES=['Private','Work','Other']
+    
+    private
+  def sortable_columns
+    ["duedate"]
+  end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "duedate"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+ end
 end
